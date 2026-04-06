@@ -1,0 +1,8 @@
+$pdf_mode = 1;
+$interaction = 'nonstopmode';
+$bibtex_use = 1;
+$out_dir = 'build';
+$pdflatex = 'python3 scripts/generate_seed19_tex_includes.py && pdflatex %O %S';
+$preview_mode = 0;
+$pdf_previewer = 'true';  # no-op, prevents launching xpdf/evince
+

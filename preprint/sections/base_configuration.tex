@@ -1,0 +1,204 @@
+\section{The Base Configuration}\label{sec:main-result}
+
+In this section we present the base configuration of $19$ straight lines
+(Figure~\ref{fig:base-configuration}) and establish its properties that allow us
+to apply the iterative step from Proposition~\ref{prop:iterative-step}.
+
+\begin{figure}[ht]
+\centering
+\resizebox{1.0\textwidth}{!}{\input{figures/19-pseudolines}}
+\caption{Pseudoline diagram of the base configuration with all $107$
+bounded triangles numbered. Lines are labeled $0,1,\dots,18$.}
+\label{fig:pseudolines}
+\end{figure}
+
+The base configuration is the normalized family of straight lines
+\begin{equation}\label{eq:seed19-normalized-family}
+  Y_0:\ y=0,
+  \qquad
+  L_i:\ y=m_i(x-a_i),
+  \qquad i=1,\dots,18,
+\end{equation}
+where $a_8=-\eps$, $a_{15}=+\eps$, and the remaining $a_i$ values are
+$\pm\tan(k\pi/18)$, $k=1,\dots,8$. The slopes $m_i$ and the parameter $\eps$
+may vary in the following range:
+\input{generated/seed19_normalized_data}
+
+The corresponding $\mathrm{O}$-matrix is listed in \eqref{eq:seed19-omatrix},
+and Figure~\ref{fig:pseudolines} shows the associated pseudoline diagram.
+
+\refstepcounter{equation}
+\begingroup
+\noindent\hfill
+\begin{minipage}[c]{0.72\linewidth}
+\footnotesize
+\input{generated/seed19_omatrix}
+\end{minipage}%
+\hfill(\theequation)\label{eq:seed19-omatrix}
+\endgroup
+
+\begin{theorem}[Straight-line base configuration at $n=19$]\label{thm:main-seed}
+For every choice of parameters in \eqref{eq:seed19-parameter-box},
+the normalized family
+\eqref{eq:seed19-normalized-family} is a simple affine arrangement of $19$
+straight lines satisfying:
+\begin{enumerate}[label=(\arabic*)]
+\item $Y_0$ is the line $y=0$;
+\item each $L_i$ has the form $y=m_i(x-a_i)$;
+\item
+$
+  \{a_1,\dots,a_{18}\}
+  =
+  \{\pm\tan(k\pi/18)\mid k=1,\dots,8\}\cup\{-\eps,+\eps\}
+$, with $\eps<1/36$;
+\item $Y_0$ touches exactly $17$ triangles;
+\item the arrangement has exactly $107$ bounded triangular faces.
+\end{enumerate}
+\end{theorem}
+
+The resulting family satisfies the hypotheses of
+Proposition~\ref{prop:iterative-step} (up to relabeling), with the special
+pair $(L_8,L_{15})$ given by $a_8=-\eps$ and $a_{15}=+\eps$.
+Since the iterative construction requires $\eps$ arbitrarily close to $0$,
+but our computer-assisted verification (recorded in
+Section~\ref{sec:certified-package}) uses interval arithmetic on closed
+bounded intervals, we split the argument
+at an auxiliary cutoff $\SeedNineteenEpsLower$:
+Lemma~\ref{lem:interval-realization} covers
+$[\SeedNineteenEpsLower,\SeedNineteenEpsUpper]$ by direct computation, and
+Lemma~\ref{lem:bbl-match} extends the result to
+$(0,\SeedNineteenEpsLower)$ by an affine-linearity argument.
+
+\begin{lemma}[Interval realization of the $\mathrm{O}$-matrix]\label{lem:interval-realization}
+For every $\eps\in[\SeedNineteenEpsLower,\SeedNineteenEpsUpper]$ and every
+choice of slopes in \eqref{eq:seed19-parameter-box},
+the normalized family \eqref{eq:seed19-normalized-family} is a simple affine
+arrangement realizing exactly the $\mathrm{O}$-matrix
+\eqref{eq:seed19-omatrix}.
+
+In other words, throughout this parameter range, the crossing order along each
+line is fixed by the $\mathrm{O}$-matrix, no two lines are parallel,
+and no triple intersections occur.
+\end{lemma}
+
+\begin{proof}
+The combinatorial order along $Y_0$ depends on the parameters
+$a_i$, which are determined by the construction. It can be checked directly that
+this order is compatible with the first row $\mathrm{O}[0]$ of (\ref{eq:seed19-omatrix}),
+i.e., $a_{\mathrm{O}[0,j]}$ for $j=1,\dots,18$ forms an increasing sequence.
+For every other line $L_i$, the slope $m_i$ is nonzero on the whole
+parameter range \eqref{eq:seed19-parameter-box}, so the order of intersection points
+along $L_i$ coincides with the order of their $y$-coordinates.
+
+The intersection point of $L_i$ and $L_j$ has $y$-coordinate
+\begin{equation}
+  y_{i,j}=\frac{m_i m_j(a_i-a_j)}{m_i-m_j},\label{eq:y-coordinate}
+\end{equation}
+so each row of the $\mathrm{O}$-matrix is equivalent to a list of strict
+inequalities comparing these $y$-coordinates. For instance, in row $4$ the label $5$
+precedes the label $7$, hence one of the required inequalities is
+\[
+  \frac{m_4 m_5(a_4-a_5)}{m_4-m_5}
+  >
+  \frac{m_4 m_7(a_4-a_7)}{m_4-m_7}.
+\]
+In this way the $\mathrm{O}$-matrix \eqref{eq:seed19-omatrix} can be transformed into a finite system of
+strict row-order inequalities
+\begin{equation}\label{eq:row-order-ineqs}
+  y_{i,\,\mathrm{O}[i,j]} - y_{i,\,\mathrm{O}[i,j+1]} > 0,
+  \qquad i=1,\dots,18,\  \  j=1,\dots,17,
+\end{equation}
+together with the slope-order conditions
+\begin{equation}\label{eq:slope-separation}
+  \frac{1}{m_1} < \frac{1}{m_2} < \cdots < \frac{1}{m_{18}},
+\end{equation}
+which order the lines by direction. (Since $1/m_i=\cot\theta_i$, where
+$\theta_i\in(0,\pi)$ is the angle that $L_i$ makes with the positive $x$-axis,
+and since $\cot$ is monotone on $(0,\pi)$, this chain of conditions
+is equivalent to a strict ordering of the angles $\theta_i$.) In particular,
+\eqref{eq:slope-separation} guarantees the absence of parallel lines.
+Together, \eqref{eq:row-order-ineqs} and \eqref{eq:slope-separation} yield
+more than $300$ rational inequalities, which we verify
+using the computer-assisted interval-arithmetic calculations recorded in
+Section~\ref{sec:certified-package} (though in principle this could be done by hand).
+It follows that the crossing order along every line is fixed
+throughout the range and that no two lines are parallel.
+
+Strict row order also excludes triple intersections: if
+$L_i\cap L_j = L_i\cap L_k$, then $y_{i,j}=y_{i,k}$, contradicting
+the strict inequality. Together with
+\eqref{eq:slope-separation}, this proves simplicity and the exact realization of the
+$\mathrm{O}$-matrix \eqref{eq:seed19-omatrix}.
+\end{proof}
+
+\begin{lemma}[Triangle counts from the $\mathrm{O}$-matrix]\label{lem:omatrix-consequences}
+Every simple affine arrangement realizing the $\mathrm{O}$-matrix
+\eqref{eq:seed19-omatrix} has
+\begin{enumerate}[label=(\arabic*)]
+\item exactly $107$ bounded triangular faces;
+\item $Y_0$ touches exactly $17$ triangles.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Both counts can be verified directly by inspecting the pseudoline diagram in
+Figure~\ref{fig:pseudolines} and checking that the $\mathrm{O}$-matrix
+\eqref{eq:seed19-omatrix} encodes the same combinatorial type. Alternatively,
+by Lemma~\ref{lem:face-criterion}, bounded faces and their sizes are determined
+by adjacency of labels in the rows of the $\mathrm{O}$-matrix; the
+computer-assisted verification (Section~\ref{sec:certified-package}) carries out
+this check and confirms exactly $107$ bounded triangles, of which $17$
+touch~$Y_0$.
+\end{proof}
+
+\begin{lemma}[Small-parameter extension of the realization]\label{lem:bbl-match}
+For every $\eps\in(0,\SeedNineteenEpsUpper)$ and every choice of slopes in the
+intervals \eqref{eq:seed19-parameter-box}, the normalized family
+\eqref{eq:seed19-normalized-family} is a simple
+affine arrangement realizing the $\mathrm{O}$-matrix
+\eqref{eq:seed19-omatrix}. In particular,
+$\eps<\SeedNineteenEpsUpper<1/36=1/(2\cdot 18)$, so the
+small-parameter condition of Remark~\ref{rem:iteration-condition} is satisfied.
+\end{lemma}
+
+\begin{proof}
+Lemma~\ref{lem:interval-realization} covers
+$\eps\in[\SeedNineteenEpsLower,\SeedNineteenEpsUpper]$. It remains to extend
+the realization to $(0,\SeedNineteenEpsLower)$. The crossing order along $Y_0$
+and the slope-order conditions \eqref{eq:slope-separation} depend only on
+the $a_i$ ordering and the slope intervals, so they are unaffected by
+shrinking~$\eps$.
+
+Fix any choice of slopes $m_i$ in the intervals
+\eqref{eq:seed19-parameter-box}. Since only $a_8=-\eps$ and $a_{15}=+\eps$
+depend on~$\eps$, each row-order difference $y_{i,j}-y_{i,k}$
+in~\eqref{eq:row-order-ineqs} is affine-linear in~$\eps$. By the
+computer-assisted verification (Section~\ref{sec:certified-package}),
+at $\eps=0$ and for every choice of slopes in the full slope
+box~\eqref{eq:seed19-parameter-box}, exactly two such differences
+vanish---corresponding to the triangle touching $Y_0$ that collapses at the
+origin---and none becomes negative. Lemma~\ref{lem:interval-realization},
+which also holds over the full slope box, shows that all differences are
+positive at $\eps=\SeedNineteenEpsLower$. An affine-linear function that is
+nonnegative at $0$ and positive at $\SeedNineteenEpsLower$ is positive on the
+entire interval $(0,\SeedNineteenEpsLower]$; since both bounds are uniform
+over the slope box, the conclusion holds for every admissible choice of
+slopes. Combined with the interval verification, the realization extends to
+all $\eps\in(0,\SeedNineteenEpsUpper)$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main-seed}]
+The key intermediate step is to show that the normalized family
+\eqref{eq:seed19-normalized-family} realizes the
+$\mathrm{O}$-matrix \eqref{eq:seed19-omatrix}, from which the triangle counts
+follow.
+Lemma~\ref{lem:interval-realization} establishes this realization for every
+$\eps\in[\SeedNineteenEpsLower,\SeedNineteenEpsUpper]$ and every choice of
+slopes in \eqref{eq:seed19-parameter-box}.
+Lemma~\ref{lem:bbl-match} extends it to all
+$\eps\in(0,\SeedNineteenEpsUpper)$ by an affine-linearity argument.
+Lemma~\ref{lem:omatrix-consequences} then derives the touching condition and the
+triangle count from the $\mathrm{O}$-matrix. Together, these three lemmas
+establish all parts of the theorem for the full parameter
+range~\eqref{eq:seed19-parameter-box}.
+\end{proof}

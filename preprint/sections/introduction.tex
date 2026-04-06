@@ -1,0 +1,100 @@
+\section{Introduction}
+
+The Kobon triangle problem~\cite{oeis} asks for the maximum possible number of bounded triangular
+faces determined by $n$ lines in the real affine plane. A classical
+counting argument---each of the $n$ lines has at most $n-2$ bounded segments,
+and each triangle consumes three of them---gives the upper bound
+$\lfloor n(n-2)/3 \rfloor$.
+For small~$n$, arrangements matching this bound can often be found by hand or
+by computer search. For large~$n$, the construction of F{\"u}redi and
+Pal{\'a}sti~\cite{furedi1984} asymptotically approaches the upper bound, and for
+certain infinite but sparse series of~$n$ the exact maximum is known.
+Constructions that produce such families are rare and especially valuable.
+
+The general idea behind infinite series is iterative doubling: one
+starts with a \emph{base configuration} of $n$ lines that is optimal and
+satisfies certain geometric conditions, then inserts $n-1$ additional lines
+near a distinguished line or at infinity to obtain an arrangement of $2n-1$ lines
+that is again optimal and satisfies analogous conditions,
+so the process can be repeated ad infinitum.
+
+Two constructions of this type have been described in the literature,
+due to Forge and Ram{\'i}rez Alfons{\'i}n \cite{forge1998} and to
+Bartholdi, Blanc, and Loisel \cite{bartholdi2007}. They both yield several
+affine series, including straight-line series for
+\[
+  n = 2\cdot 2^t + 1,
+  \qquad
+  n = 6\cdot 2^t + 1,
+  \qquad
+  n = 14\cdot 2^t + 1,
+  \qquad t\ge 0,
+\]
+and a series of affine pseudoline arrangements for
+\begin{equation*}
+  n = 18\cdot 2^t + 1.
+\end{equation*}
+A pseudoline arrangement is an arrangement of curves, each pair
+crossing exactly once, that need not be straight lines.
+For this last family, \cite[Theorem~1.3]{bartholdi2007} gives the exact affine
+upper bound
+\begin{equation*}
+  a_3(n)\le \left\lfloor \frac{n(n-2)}{3}\right\rfloor
+  =
+  \frac{n(n-2)-2}{3},
+\end{equation*}
+since $n\equiv 1\pmod 6$, and proves that this value is attained by affine
+pseudoline arrangements.
+
+It has remained open whether this last series can be realized by straight lines.
+The main contribution of this paper is the discovery of a simple affine
+arrangement of $19$ straight lines satisfying the
+hypotheses of \cite[Proposition~3.1]{bartholdi2007}. This arrangement serves as
+the straight-line base configuration for the iterative doubling in the case
+$n=18\cdot 2^t+1$. Since the base configuration achieves the optimal triangle
+count for $19$ lines, the iteration applies directly and yields the optimal
+straight-line family for all $n=18\cdot 2^t+1$.
+
+Finding the base configuration requires a systematic search. The number of
+combinatorially distinct optimal arrangements grows rapidly with~$n$, while the
+conditions imposed by the iterative constructions
+of~\cite{forge1998,bartholdi2007} are quite restrictive: a candidate
+must simultaneously be stretchable and have a specific crossing pattern
+along the distinguished line or a specific pattern of slopes. We therefore organized the
+computation into several stages: enumeration of optimal pseudoline arrangements,
+classification up to projective equivalence, testing stretchability via
+numerical optimization, and checking compatibility with the iterative constructions.
+
+We also applied this search procedure to $n=21$, $23$, and $25$ (the last restricted to
+arrangements containing a bounded pentagonal face none of whose edges belongs
+to a bounded triangle). No arrangement compatible with the iterative constructions
+of~\cite{forge1998,bartholdi2007} was found, providing strong computational evidence
+that no further infinite straight-line families exist for
+these values. For $n=21$, $23$, and $25$,
+however, we found specific arrangements allowing a single iterative step,
+yielding optimal affine arrangements for $n=41$ and $n=45$
+and a projective arrangement of $49+1$ lines attaining the projective upper
+bound (Appendix~\ref{sec:appendix-one-step}).
+
+\begin{figure}[!ht]
+\centering
+\input{figures/seed-19-lines.tex}
+\caption{The base configuration for $n=19$ straight lines.
+}
+\label{fig:base-configuration}
+\end{figure}
+
+The structure of the paper is as follows. In
+Section~\ref{sec:input-statement} we recall the hypotheses of the iterative
+construction from \cite{bartholdi2007}. Section~\ref{sec:combinatorics} defines
+the $\mathrm{O}$-matrix encoding of the combinatorial type.
+The straight-line base configuration is
+established in Section~\ref{sec:main-result}, and
+Section~\ref{sec:series} applies the iterative construction to derive the
+infinite straight-line family. Section~\ref{sec:search} describes the computer
+search that produced the base configuration, and
+Section~\ref{sec:discussion} discusses the search for base
+configurations at other values of~$n$.
+Appendix~\ref{sec:certified-package} describes the computer-assisted
+verification, and Appendix~\ref{sec:appendix-one-step} records one-step
+iterative examples at $n=41$, $45$, and $49$.

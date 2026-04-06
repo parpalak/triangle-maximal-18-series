@@ -1,0 +1,92 @@
+name: Verify base 19 artifact
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/verify-base19.yml"
+      - "data/n19/**"
+      - "verifier/**"
+      - "preprint/scripts/generate_seed19_tex_includes.py"
+      - "README.md"
+  pull_request:
+    paths:
+      - ".github/workflows/verify-base19.yml"
+      - "data/n19/**"
+      - "verifier/**"
+      - "preprint/scripts/generate_seed19_tex_includes.py"
+      - "README.md"
+  workflow_dispatch:
+
+jobs:
+  verify-certificates:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild certificates from public inputs
+        env:
+          VERIFY_TMPDIR: ${{ runner.temp }}/base19-verify
+        run: |
+          set -euo pipefail
+          rm -rf "$VERIFY_TMPDIR"
+          mkdir -p "$VERIFY_TMPDIR"
+          cp data/n19/lines.csv "$VERIFY_TMPDIR/lines.csv"
+          cp data/n19/omatrix.json "$VERIFY_TMPDIR/omatrix.json"
+
+          python verifier/certify_interval.py \
+            --lines "$VERIFY_TMPDIR/lines.csv" \
+            --omatrix "$VERIFY_TMPDIR/omatrix.json" \
+            --interval-certificate "$VERIFY_TMPDIR/interval_certificate.json"
+
+          python verifier/certify_combinatorial.py \
+            --omatrix "$VERIFY_TMPDIR/omatrix.json" \
+            --certificate "$VERIFY_TMPDIR/combinatorial_certificate.json"
+
+          diff -u data/n19/interval_certificate.json "$VERIFY_TMPDIR/interval_certificate.json"
+          diff -u data/n19/combinatorial_certificate.json "$VERIFY_TMPDIR/combinatorial_certificate.json"
+
+          {
+            echo "## Verification result"
+            echo
+            echo "The verifier rebuilt both public certificates from \`lines.csv\` and \`omatrix.json\` and matched the committed outputs exactly."
+            echo
+            echo "### SHA-256"
+            echo
+            echo '```text'
+            sha256sum "$VERIFY_TMPDIR/interval_certificate.json" "$VERIFY_TMPDIR/combinatorial_certificate.json"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload rebuilt certificates
+        env:
+          VERIFY_TMPDIR: ${{ runner.temp }}/base19-verify
+        uses: actions/upload-artifact@v4
+        with:
+          name: rebuilt-certificates
+          path: |
+            ${{ runner.temp }}/base19-verify/interval_certificate.json
+            ${{ runner.temp }}/base19-verify/combinatorial_certificate.json
+
+  unit-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run verifier regression tests
+        run: python -m unittest discover -s verifier/tests

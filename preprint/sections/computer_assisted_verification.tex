@@ -1,0 +1,59 @@
+\section{Computer-Assisted Verification}\label{sec:certified-package}
+
+The computer-assisted part of the proof consists of two independent
+verification steps, each producing a machine-readable certificate.
+
+\textbf{The first step} concerns the geometric realization. Starting from the
+line data of a candidate arrangement and the target $\mathrm{O}$-matrix~\eqref{eq:seed19-omatrix},
+the normalization script reconstructs the normalized affine
+arrangement~\eqref{eq:seed19-normalized-family}
+\[
+  Y_0:\ y=0,
+  \qquad
+  L_i:\ y=m_i(x-a_i),
+\]
+recovers the exact values of the $a_i$ parameters
+($\pm\tan(k\pi/18)$, $\pm\eps$), and verifies that the row-order
+inequalities~\eqref{eq:row-order-ineqs} and slope-order
+conditions~\eqref{eq:slope-separation} hold throughout the
+parameter box \eqref{eq:seed19-parameter-box}. The resulting certificate
+records:
+\begin{itemize}[label=$\triangleright$]
+\item the choice of the distinguished line $Y_0$ and the exact labels of the
+  $a_i$ parameters;
+\item an interval for the special parameter $\eps$;
+\item strict ordering of intersections along each line, with a positive
+  safety margin;
+\item positive slope-separation for every pair of slopes;
+\item the direction ordering~\eqref{eq:slope-separation} of the lines,
+  verified over the full slope range;
+\item the $\eps=0$ checks: substituting $\eps=0$ and evaluating every
+  row-order difference using interval arithmetic over the full slope
+  range~\eqref{eq:seed19-parameter-box}, exactly two differences vanish
+  (the ordering of $Y_0$ and $L_{15}$ along $L_8$, and of $Y_0$ and $L_8$
+  along $L_{15}$; all three lines meet at the origin when $a_8=a_{15}=0$)
+  and no difference becomes negative;
+\item the verdict that the normalized arrangement realizes the target
+  $\mathrm{O}$-matrix.
+\end{itemize}
+
+\textbf{The second step} concerns the combinatorial properties of the base
+configuration. Using the face criterion of Lemma~\ref{lem:face-criterion},
+the structural verifier enumerates bounded faces directly from adjacency
+relations in the rows of the $\mathrm{O}$-matrix and confirms:
+\begin{itemize}[label=$\triangleright$]
+\item $Y_0$ touches exactly $17$ triangles;
+\item the arrangement has exactly $107$ bounded triangular faces.
+\end{itemize}
+
+This separation of steps is not essential. In principle, the combinatorial structure and
+triangle counts could be recovered directly from the line equations in a single
+verification step. We instead use the $\mathrm{O}$-matrix as an intermediate
+object fixing the combinatorial type, so that the two certificates mirror the
+two parts of the proof: realization of the $\mathrm{O}$-matrix by the line
+arrangement, and verification of the required properties of the
+$\mathrm{O}$-matrix itself.
+
+All input data, verification scripts, output certificates,
+and detailed format specifications are available at our GitHub repository
+\cite{repo}.

@@ -1,0 +1,70 @@
+\section{Definitions and Setup for the Iterative Construction}\label{sec:input-statement}
+
+An arrangement of lines is called \emph{simple} if no point belongs to more
+than two of its lines. We work with simple affine arrangements in
+$\mathbb{R}^2$ and write $a_3(\cA)$ for the number of bounded triangular
+faces of an arrangement~$\cA$. A distinguished line $Y_0$ \emph{touches} a
+triangle if it contains one of its sides.
+
+Throughout the paper we use the best affine upper bound from
+\cite[Theorem~1.3]{bartholdi2007}: for every simple affine
+arrangement of $n$ lines or pseudolines with $n\equiv 1\pmod{6}$,
+\begin{equation}\label{eq:bbl-upper-bound}
+  a_3(\cA)\le \left\lfloor \frac{n(n-2)}{3}\right\rfloor
+  =
+  \frac{n(n-2)-2}{3}.
+\end{equation}
+An arrangement is \emph{$a_3$-maximal} if it attains this bound.
+
+We use the following affine formulation of the iterative step from
+\cite[Proposition~3.1 and Remark~3.2]{bartholdi2007}.
+
+\begin{proposition}[Affine iterative step]\label{prop:iterative-step}
+Let $n\ge 2$ be an even number, and let
+\[
+  \cA=\{Y_0,L_1,\dots,L_n\}
+\]
+be a simple affine arrangement of $n+1$ lines, given by the equations
+\[
+  Y_0:\ y=0,
+  \qquad
+  L_i:\ y=m_i(x-a_i).
+\]
+Assume that
+\[
+  \{a_1,\dots,a_{n-2}\}=\{\pm\tan(k\pi/n)\mid k=1,\dots,n/2-1\},
+\]
+and
+\[
+  -\frac{1}{n}<a_{n-1}<0<a_n<\frac{1}{n},
+\]
+and that $Y_0$ touches exactly $n-1$ triangles of the arrangement $\cA$.
+Then there exist $n$ lines $M_1,\dots,M_n$ such that
+the affine arrangement
+\[
+  \cB=\{Y_0,L_1,\dots,L_n,M_1,\dots,M_n\}
+\]
+of $2n+1$ lines is simple and has exactly $n^2$ more
+triangles than $\cA$, and $Y_0$ touches exactly $2n-1$ triangles of $\cB$.
+\end{proposition}
+
+\begin{remark}[Iteration condition]\label{rem:iteration-condition}
+If moreover $|a_{n-1}|$ and $|a_n|$ are smaller than $1/(2n)$, then the new
+arrangement $\cB$ again satisfies the hypotheses of the proposition. Hence the
+construction can be iterated provided these two special parameters are chosen
+arbitrarily small.
+\end{remark}
+
+For the base configuration studied in this paper
+(see Figure~\ref{fig:base-configuration}), the relevant value is $n=18$,
+so it has $19$ lines in total. In Section~\ref{sec:main-result},
+we prove the existence of a straight-line affine arrangement
+$
+  \{Y_0,L_1,\dots,L_{18}\}
+$
+with
+\[
+  \{a_1,\dots,a_{18}\}=\{\pm\tan(k\pi/18)\mid k=1,\dots,8\} \cup \{-\eps,+\eps\},
+\]
+where $\eps>0$ is small enough and the hypotheses of the proposition and
+remark above hold.

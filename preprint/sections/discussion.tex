@@ -1,0 +1,117 @@
+\section{Discussion}\label{sec:discussion}
+
+The main result of this paper is the discovery of a base configuration for
+$n=19$ that yields an infinite straight-line affine series attaining the optimal
+number of bounded triangles for every $n=18\cdot 2^t+1$.
+The base configuration was found by a systematic computational search.
+We applied the same search procedure to other odd values of~$n$ with two goals:
+to identify further base configurations for infinite iteration, and
+to detect arrangements that, while not supporting repeated iteration,
+may still admit a single realizable iterative step.
+
+\textbf{Search for infinite series.}
+The table below summarizes the results,
+obtained in three stages:
+enumeration of projective equivalence classes,
+numerical stretchability testing, and
+checking compatibility with iterative conditions.
+
+\medskip
+\begin{tabular}{|l|r|r|r|r|r|}
+ \hline
+ n                    & 19         & 21       & 23  & 25, 5-gon defect & 27, partial \\
+ \hline
+ Projective classes   & 1312       & 18       & 112 & 2324             & $\geq$ 56646 \\
+ \hline
+ Stretchable classes  & $\geq1306$ & $\geq11$ & $\geq51$ & $\geq122$   & $\geq348$   \\
+ \hline
+ Base configurations & 171 & 0 & 0 & 0 & $\geq0$ \\
+ \hline
+\end{tabular}
+\smallskip
+
+\noindent{\small (The enumeration was complete for all columns except $n=27$; entries marked
+with $\geq$ are lower bounds from incomplete or heuristic stages.)}
+\medskip
+
+\emph{Projective classes.}
+After enumerating optimal pseudoline arrangements, we identified projectively
+equivalent arrangements and counted them only once.
+
+\emph{Stretchable classes.}
+Next, for each of the projective classes, we tried to realize the
+corresponding pseudoline arrangements by straight lines numerically. We
+minimized by gradient descent the sum of squared violations of the row-order
+inequalities~\eqref{eq:general-order-ineq}. Thus, the numbers in this row are
+only lower bounds: a
+negative result may simply mean that the computation did not find a straight-line representative.
+
+\emph{Base configurations.}
+Finally, we tested all enumerated optimal arrangements reconstructed
+from projective classes for compatibility with the conditions required
+for the iterative constructions of~\cite{forge1998,bartholdi2007}.
+This check is reduced to the feasibility of the linear
+system~\eqref{eq:linear-order-ineq}, so the absence of a solution
+can be guaranteed, unlike with the gradient-based stretching procedure.
+None of the tested arrangements for $n=21$ and $n=23$
+yielded a base configuration, so these zero entries
+should be viewed as stronger negative evidence.
+The case $n=25$ is discussed separately below.
+
+Thus, for $n=21$ and $n=23$, the
+computations provide strong evidence against the existence of new
+infinite iterative series of type~\cite{forge1998,bartholdi2007}.
+
+\textbf{Infinite series for $n=25$.}
+This case is more subtle because even the maximal number
+$\lfloor n(n-2)/3\rfloor$ of triangles does not use all bounded segments:
+when $n\equiv 1\pmod{6}$, at least two bounded segments do not belong
+to any bounded triangle. In the affine plane, these \emph{unused segments} belong to
+unbounded faces of optimal arrangements (see $L_{13}L_{11}L_{14}$
+and $L_{12}L_{4}L_{13}$ in Figure~\ref{fig:pseudolines})
+and therefore do not prevent the triangle count from attaining the upper bound.
+
+Adding the line at infinity, however, turns the unbounded faces with those
+unused segments into bounded faces whose every edge becomes unused;
+we call such faces \emph{defects}.
+In all optimal arrangements that we enumerated, the defect is either a
+single pentagon or a pair of quadrilaterals.
+For arrangements of $n$ lines in the projective plane with $n\equiv 2\pmod{6}$, the upper bound
+\begin{equation}\label{eq:blanc-projective-bound}
+  p_3(\cA)\le \frac{n(n-1)-5}{3}
+\end{equation}
+is attained for pseudoline arrangements only in the presence of a pentagonal
+defect, and to our knowledge no corresponding straight-line configuration has
+been reported~\cite{blanc2011}.
+Accordingly, the column $n=25$ in the table concerns only pentagonal-defect
+arrangements, since this is the only subclass relevant to a potentially new
+projective-maximal family (arrangements with two quadrilateral defects
+would only cover the same values of $n$ as the already known series
+$n=6\cdot 2^t+1$~\cite{bartholdi2007}).
+Within the pentagonal-defect subclass, none of the enumerated
+arrangements passes the iterative compatibility test.
+
+Note that defects introduce additional combinatorial freedom,
+which explains why the counts at $n=19$ are much larger than at $n=21$
+and $n=23$.
+
+\textbf{One-step realizable examples.}
+Compatibility with the iterative conditions is a stronger requirement than
+ordinary stretchability, since it is designed to support repeated application
+of iterative constructions. Its failure therefore rules out an infinite
+iterative family of this type, but does not exclude the possibility that one
+or more finite iterative steps still produce straight-line realizable
+arrangements. Explicit realizable arrangements of
+$41$ and $45$ lines, obtained from arrangements of $21$ and $23$ lines after a
+single iterative step, are recorded in Appendix~\ref{sec:appendix-one-step}.
+Besides these examples, we found a realizable arrangement
+of $49$ lines obtained from a $25$-line arrangement with a pentagonal defect
+after a single iterative step. After adding the line at infinity, this yields
+a projective arrangement with $50$ lines and $815$ triangles, attaining the
+projective upper bound \eqref{eq:blanc-projective-bound}.
+
+Finally, we observe that as $n$ increases, the proportion of stretchable
+arrangements among the enumerated optimal pseudoline arrangements appears to
+decrease. We conjecture that the number of infinite series of
+type~\cite{forge1998,bartholdi2007} arising from stretchable
+optimal arrangements is finite.

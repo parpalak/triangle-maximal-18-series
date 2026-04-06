@@ -1,0 +1,55 @@
+\section{How the Base Configuration Was Found}\label{sec:search}
+
+This section describes the computer search that produced the base
+configuration of Theorem~\ref{thm:main-seed}. The proof does not depend on
+this material; we include it to document the methodology.
+For the computer-assisted checks used in the proof,
+see Section~\ref{sec:certified-package}.
+
+The search requires two stages.
+First, we enumerated pseudoline arrangements by generating
+allowable sequences of permutations realizing the target triangle count
+given by the upper bound~\eqref{eq:bbl-upper-bound}.
+Second, we extracted the corresponding $\mathrm{O}$-matrices and attempted to
+find straight-line realizations compatible with the constraints imposed by the
+iterative constructions of~\cite{forge1998,bartholdi2007}.
+The enumeration at $n=19$ was complete, but completeness is not
+required: a single suitable candidate suffices for the proof of
+Theorem~\ref{thm:main-seed}.
+
+In general, stretching a pseudoline arrangement means realizing the
+crossing orders encoded by its $\mathrm{O}$-matrix. If, in a fixed row, the
+label $j$ must precede the label $k$, then the $y$-coordinates~\eqref{eq:y-coordinate}
+of the corresponding intersection points
+must satisfy an inequality of the form
+\begin{equation*}
+\frac{a_i-a_j}{s_i-s_j} < \frac{a_i-a_k}{s_i-s_k},
+\end{equation*}
+or, equivalently, after clearing denominators and taking signs into account,
+in a form more suitable for computation,
+\begin{equation}
+(s_i-s_k)(a_i-a_j) \lessgtr (s_i-s_j)(a_i-a_k),\label{eq:general-order-ineq}
+\end{equation}
+where $s_i=1/m_i$. Thus the combinatorial realization problem becomes a finite
+feasibility problem for row-order inequalities together with the
+slope-order conditions~\eqref{eq:slope-separation}.
+
+The present search of base configurations for the iterative construction
+in Proposition~\ref{prop:iterative-step} is more restrictive.
+It also fixes the $x$-intercept parameters $a_i$, while the reciprocal slope variables
+$s_i=1/m_i$ remain unknown. With this choice, every adjacent row-order
+comparison becomes linear in the variables $s_i$. The stretching step therefore
+reduces to finding a feasible point of the system of linear inequalities
+\begin{equation}
+\ell_r(s_1,\dots,s_{n-1})\le -\eta,\qquad r=1,\dots,R,\label{eq:linear-order-ineq}
+\end{equation}
+where the linear forms $\ell_r$ are obtained from~\eqref{eq:general-order-ineq} and
+$\eta>0$ is a fixed safety margin. We solve this feasibility problem with the
+HiGHS linear optimization package~\cite{huangfu2018dual}, which provides
+reliable infeasibility certificates.
+
+This search generated candidate arrangements but was not part of the proof.
+After obtaining a floating-point realization, the
+normalization script described in Section~\ref{sec:certified-package}
+determined exact rational parameters and the admissible intervals recorded in
+Theorem~\ref{thm:main-seed}.

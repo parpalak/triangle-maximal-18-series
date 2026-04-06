@@ -1,0 +1,39 @@
+\section{The Optimal Series $18\cdot 2^t+1$}\label{sec:series}
+
+Since the base configuration of Theorem~\ref{thm:main-seed} already satisfies
+the hypotheses of the affine iterative step
+(Proposition~\ref{prop:iterative-step}), the construction of
+\cite{bartholdi2007} applies directly and yields the following.
+
+\begin{theorem}[Straight-line optimal series for $18\cdot 2^t+1$ lines]\label{thm:straight-series}
+For every integer $t\ge 0$, there exists a simple affine arrangement of
+$n=18\cdot 2^t+1$ straight lines attaining the affine upper
+bound~\eqref{eq:bbl-upper-bound}:
+\[
+  a_3
+  =\left\lfloor \frac{n(n-2)}{3}\right\rfloor
+  =108\cdot 4^t-1.
+\]
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:main-seed}, the base configuration $\cA_0$ is a simple
+affine arrangement of $19$ straight lines with $a_3(\cA_0)=107$ bounded
+triangles and $Y_0$ touching exactly $17$ of them. By
+Lemma~\ref{lem:bbl-match}, the realization holds for all
+$\eps\in(0,\SeedNineteenEpsUpper)$; in particular, $\eps$ can be chosen
+arbitrarily small, so the iteration condition of
+Remark~\ref{rem:iteration-condition} is satisfied and
+Proposition~\ref{prop:iterative-step} can be applied repeatedly. Writing
+$n_t=18\cdot 2^t$, each step produces a simple affine arrangement $\cA_{t+1}$
+of $2n_t+1$ straight lines with $n_t^2$ more bounded triangles than $\cA_t$.
+Therefore
+\[
+  a_3(\cA_t)
+  =107+\sum_{s=0}^{t-1}(18\cdot 2^s)^2
+  =107+324\cdot\frac{4^t-1}{3}
+  =108\cdot 4^t-1
+  =\frac{(n_t+1)(n_t-1)-2}{3},
+\]
+which is the upper bound~\eqref{eq:bbl-upper-bound} for $n=n_t+1$.
+\end{proof}

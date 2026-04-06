@@ -1,0 +1,47 @@
+[
+  {
+    "file": "19.lines.csv",
+    "title": "19 lines, base configuration",
+    "description": "Satisfies the hypotheses of the Bartholdi\u2013Blanc\u2013Loisel iterative construction for the infinite series n = 18\u00b72\u1d57+1."
+  },
+  {
+    "file": "37.lines.csv",
+    "title": "37 lines, one-step from 19",
+    "description": "First iterative step applied to the 19-line base configuration using the Bartholdi\u2013Blanc\u2013Loisel construction."
+  },
+  {
+    "file": "41.lines.csv",
+    "title": "41 lines, one-step from 21",
+    "description": "Single iterative step from a 21-line arrangement using the Forge\u2013Ram\u00edrez Alfons\u00edn construction. No infinite series is possible from the parent."
+  },
+  {
+    "file": "45.lines.csv",
+    "title": "45 lines, one-step from 23",
+    "description": "Single iterative step from a 23-line arrangement using the Forge\u2013Ram\u00edrez Alfons\u00edn construction. No infinite series is possible from the parent."
+  },
+  {
+    "file": "25-b5.lines.csv",
+    "title": "25 lines, pentagonal defect",
+    "description": "An arrangement of 25 straight lines with a pentagonal defect (190 affine triangles, upper bound 191). Adding the line at infinity gives 26 projective lines attaining the projective upper bound (n(n\u22121)\u22125)/3 = 215. No infinite series is possible from the parent."
+  },
+  {
+    "file": "49-b5.lines.csv",
+    "title": "49 lines, one-step from 25, pentagonal defect",
+    "description": "One iterative step from the 25-line pentagonal-defect arrangement using the Forge\u2013Ram\u00edrez Alfons\u00edn construction. Adding the line at infinity gives 50 projective lines attaining the projective upper bound (n(n\u22121)\u22125)/3 = 815. No infinite series is possible from the parent."
+  },
+  {
+    "file": "38.lines.csv",
+    "title": "38 lines, one line added to 37",
+    "description": "Obtained by adding one line to the 37-line configuration. Does not attain the upper bound but provides a lower bound for n = 38."
+  },
+  {
+    "file": "42.lines.csv",
+    "title": "42 lines, one line added to 41",
+    "description": "Obtained by adding one line to the 41-line configuration. Does not attain the upper bound but provides a lower bound for n = 42."
+  },
+  {
+    "file": "46.lines.csv",
+    "title": "46 lines, one line added to 45",
+    "description": "Obtained by adding one line to the 45-line configuration. Does not attain the upper bound but provides a lower bound for n = 46."
+  }
+]
