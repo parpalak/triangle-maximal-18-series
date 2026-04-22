@@ -134,7 +134,7 @@ function generateGalleryHTML(entries) {
       <div class="entry-body">
         <div class="image" data-entry="${i}"></div>
         <div class="info">
-          <p class="stats">${e.n} lines, ${e.triangles} triangles (upper bound <span class="upper-bound" title="${e.upperBound.formula}">${e.upperBound.value}</span>)</p>
+          <p class="stats">${e.n} lines<br>${e.triangles} triangles (upper bound <span class="upper-bound" title="${e.upperBound.formula}">${e.upperBound.value}</span>)</p>
           <div class="equations">
             <pre class="coefficients">${linesText}</pre>
             <button class="copy-btn" onclick="navigator.clipboard.writeText('${csvText.replace(/'/g, "\\'")}')">Copy line coefficients m, b as CSV</button>

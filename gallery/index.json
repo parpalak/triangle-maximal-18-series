@@ -2,7 +2,7 @@
   {
     "file": "19.lines.csv",
     "title": "19 lines, base configuration",
-    "description": "Satisfies the hypotheses of the Bartholdi\u2013Blanc\u2013Loisel iterative construction for the infinite series n = 18\u00b72\u1d57+1."
+    "description": "Satisfies the hypotheses of the Bartholdi\u2013Blanc\u2013Loisel iterative construction for the infinite series n = 18\u00b72<sup>t</sup>+1."
   },
   {
     "file": "37.lines.csv",
