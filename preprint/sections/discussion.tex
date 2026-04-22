@@ -3,11 +3,13 @@
 The main result of this paper is the discovery of a base configuration for
 $n=19$ that yields an infinite straight-line affine series attaining the optimal
 number of bounded triangles for every $n=18\cdot 2^t+1$.
-The base configuration was found by a systematic computational search.
-We applied the same search procedure to other odd values of~$n$ with two goals:
-to identify further base configurations for infinite iteration, and
-to detect arrangements that, while not supporting repeated iteration,
-may still admit a single realizable iterative step.
+The base configuration was found by a systematic computational search with
+two goals: to identify base configurations for infinite iteration, and to
+detect arrangements that, while not supporting repeated iteration, may still
+admit a single realizable iterative step.
+The search was restricted to odd values of~$n$, since the iterative
+constructions of~\cite{forge1998,bartholdi2007} apply only to odd~$n$;
+enumeration of optimal pseudoline arrangements is also simpler in this case.
 
 \textbf{Search for infinite series.}
 The table below summarizes the results,
@@ -17,21 +19,17 @@ numerical stretchability testing, and
 checking compatibility with iterative conditions.
 
 \medskip
-\begin{tabular}{|l|r|r|r|r|r|}
+\noindent\begin{tabular}{|l|r|r|r|r|r|r|r|}
  \hline
- n                    & 19         & 21       & 23  & 25, 5-gon defect & 27, partial \\
+ $n$                  & 15 & 17 & 19         & 21       & 23  & 25, 5-gon defect & 27 \\
  \hline
- Projective classes   & 1312       & 18       & 112 & 2324             & $\geq$ 56646 \\
+ Projective classes   & 1  & 3  & 1312       & 18       & 112 & 2324             & 56646 \\
  \hline
- Stretchable classes  & $\geq1306$ & $\geq11$ & $\geq51$ & $\geq122$   & $\geq348$   \\
+ Stretchable classes  & 1  & 3  & $\geq1306$ & $\geq11$ & $\geq51$ & $\geq122$   & $\geq348$   \\
  \hline
- Base configurations & 171 & 0 & 0 & 0 & $\geq0$ \\
+ Base configurations  & 1  & 3  & 170        & 0        & 0   & 0                & 0 \\
  \hline
 \end{tabular}
-\smallskip
-
-\noindent{\small (The enumeration was complete for all columns except $n=27$; entries marked
-with $\geq$ are lower bounds from incomplete or heuristic stages.)}
 \medskip
 
 \emph{Projective classes.}
@@ -56,6 +54,8 @@ can be guaranteed, unlike with the gradient-based stretching procedure.
 None of the tested arrangements for $n=21$ and $n=23$
 yielded a base configuration, so these zero entries
 should be viewed as stronger negative evidence.
+The columns $n=15$ and $n=17$ reproduce known small cases
+from the series~\eqref{eq:known-series}.
 The case $n=25$ is discussed separately below.
 
 Thus, for $n=21$ and $n=23$, the
