@@ -4,12 +4,12 @@ This section describes the computer search that produced the base
 configuration of Theorem~\ref{thm:main-seed}. The proof does not depend on
 this material; we include it to document the methodology.
 For the computer-assisted checks used in the proof,
-see Section~\ref{sec:certified-package}.
+see Appendix~\ref{sec:certified-package}.
 
 The search requires two stages.
 First, we enumerated pseudoline arrangements by generating
 allowable sequences of permutations realizing the target triangle count
-given by the upper bound~\eqref{eq:bbl-upper-bound}.
+given by the upper bound~\eqref{eq:upper-bound}.
 Second, we extracted the corresponding $\mathrm{O}$-matrices and attempted to
 find straight-line realizations compatible with the constraints imposed by the
 iterative constructions of~\cite{forge1998,bartholdi2007}.
@@ -50,6 +50,6 @@ reliable infeasibility certificates.
 
 This search generated candidate arrangements but was not part of the proof.
 After obtaining a floating-point realization, the
-normalization script described in Section~\ref{sec:certified-package}
+normalization script described in Appendix~\ref{sec:certified-package}
 determined exact rational parameters and the admissible intervals recorded in
 Theorem~\ref{thm:main-seed}.

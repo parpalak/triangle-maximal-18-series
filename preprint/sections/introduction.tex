@@ -19,8 +19,8 @@ that is again optimal and satisfies analogous conditions,
 so the process can be repeated ad infinitum.
 
 Two constructions of this type have been described in the literature,
-due to Forge and Ram{\'i}rez Alfons{\'i}n \cite{forge1998} and to
-Bartholdi, Blanc, and Loisel \cite{bartholdi2007}. They both yield several
+due to Forge and Ram{\'i}rez Alfons{\'i}n~\cite{forge1998} and to
+Bartholdi, Blanc, and Loisel~\cite{bartholdi2007}. They both yield several
 affine series, including straight-line series for
 \begin{equation}\label{eq:known-series}
   n = 2\cdot 2^t + 1,
@@ -36,20 +36,20 @@ and a series of affine pseudoline arrangements for
 \end{equation*}
 A pseudoline arrangement is an arrangement of curves, not necessarily
 straight, each pair crossing exactly once.
-For this last family, \cite[Theorem~1.3]{bartholdi2007} gives the exact affine
-upper bound
+This last family has $n\equiv 1\pmod 6$, and
+\cite[Theorem~1.3]{bartholdi2007} proves that the exact affine upper
+bound
 \begin{equation*}
-  a_3(n)\le \left\lfloor \frac{n(n-2)}{3}\right\rfloor
+  \left\lfloor \frac{n(n-2)}{3}\right\rfloor
   =
-  \frac{n(n-2)-2}{3},
+  \frac{n(n-2)-2}{3}
 \end{equation*}
-since $n\equiv 1\pmod 6$, and proves that this value is attained by affine
-pseudoline arrangements.
+is attained by the pseudoline arrangements of this series.
 
 It has remained open whether this last series can be realized by straight lines.
 The main contribution of this paper is the discovery of a simple affine
 arrangement of $19$ straight lines satisfying the
-hypotheses of \cite[Proposition~3.1]{bartholdi2007}. This arrangement serves as
+hypotheses of~\cite[Proposition~3.1]{bartholdi2007}. This arrangement serves as
 the straight-line base configuration for the iterative doubling in the case
 $n=18\cdot 2^t+1$. Since the base configuration achieves the optimal triangle
 count for $19$ lines, the iteration applies directly and yields the optimal
@@ -65,7 +65,7 @@ computation into several stages: enumeration of optimal pseudoline arrangements,
 classification up to projective equivalence, testing stretchability via
 numerical optimization, and checking compatibility with the iterative constructions.
 
-We also applied this search procedure to $n=21$, $23$, and $25$ (the last restricted to
+We also applied this search procedure to $n=21$, $23$, $25$, $27$ ($n=25$ restricted to
 arrangements containing a bounded pentagonal face none of whose edges belongs
 to a bounded triangle). No arrangement compatible with the iterative constructions
 of~\cite{forge1998,bartholdi2007} was found, providing strong computational evidence
@@ -73,8 +73,8 @@ that no further infinite straight-line families exist for
 these values. For $n=21$, $23$, and $25$,
 however, we found arrangements allowing a single iterative step,
 yielding optimal affine arrangements for $n=41$ and $n=45$
-and a projective arrangement of $49$ affine lines together with the line at infinity,
-attaining the projective upper bound (Appendix~\ref{sec:appendix-one-step}).
+and an affine arrangement of $49$ lines that, together with the line at infinity,
+attains the projective upper bound (Appendix~\ref{sec:appendix-one-step}).
 
 \begin{figure}[!ht]
 \centering
@@ -86,7 +86,7 @@ attaining the projective upper bound (Appendix~\ref{sec:appendix-one-step}).
 
 The structure of the paper is as follows. In
 Section~\ref{sec:input-statement} we recall the hypotheses of the iterative
-construction from \cite{bartholdi2007}. Section~\ref{sec:combinatorics} defines
+construction from~\cite{bartholdi2007}. Section~\ref{sec:combinatorics} defines
 the $\mathrm{O}$-matrix encoding of the combinatorial type.
 The straight-line base configuration is
 established in Section~\ref{sec:main-result}, and

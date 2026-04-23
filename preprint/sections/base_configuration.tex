@@ -61,7 +61,7 @@ Proposition~\ref{prop:iterative-step} (up to relabeling), with the special
 pair $(L_8,L_{15})$ given by $a_8=-\eps$ and $a_{15}=+\eps$.
 Since the iterative construction requires $\eps$ arbitrarily close to $0$,
 but our computer-assisted verification (recorded in
-Section~\ref{sec:certified-package}) uses interval arithmetic on closed
+Appendix~\ref{sec:certified-package}) uses interval arithmetic on closed
 bounded intervals, we split the argument
 at an auxiliary cutoff $\SeedNineteenEpsLower$:
 Lemma~\ref{lem:interval-realization} covers
@@ -84,7 +84,7 @@ and no triple intersections occur.
 \begin{proof}
 The combinatorial order along $Y_0$ depends on the parameters
 $a_i$, which are determined by the construction. It can be checked directly that
-this order is compatible with the first row $\mathrm{O}[0]$ of (\ref{eq:seed19-omatrix}),
+this order is compatible with the first row $\mathrm{O}[0]$ of~\eqref{eq:seed19-omatrix},
 i.e., $a_{\mathrm{O}[0,j]}$ for $j=1,\dots,18$ forms an increasing sequence.
 For every other line $L_i$, the slope $m_i$ is nonzero on the whole
 parameter range \eqref{eq:seed19-parameter-box}, so the order of intersection points
@@ -120,7 +120,7 @@ is equivalent to a strict ordering of the angles $\theta_i$.) In particular,
 Together, \eqref{eq:row-order-ineqs} and \eqref{eq:slope-separation} yield
 more than $300$ rational inequalities, which we verify
 using the computer-assisted interval-arithmetic calculations recorded in
-Section~\ref{sec:certified-package} (though in principle this could be done by hand).
+Appendix~\ref{sec:certified-package} (though in principle this could be done by hand).
 It follows that the crossing order along every line is fixed
 throughout the range and that no two lines are parallel.
 
@@ -146,7 +146,7 @@ Figure~\ref{fig:pseudolines} and checking that the $\mathrm{O}$-matrix
 \eqref{eq:seed19-omatrix} encodes the same combinatorial type. Alternatively,
 by Lemma~\ref{lem:face-criterion}, bounded faces and their sizes are determined
 by adjacency of labels in the rows of the $\mathrm{O}$-matrix; the
-computer-assisted verification (Section~\ref{sec:certified-package}) carries out
+computer-assisted verification (Appendix~\ref{sec:certified-package}) carries out
 this check and confirms exactly $107$ bounded triangles, of which $17$
 touch~$Y_0$.
 \end{proof}
@@ -173,7 +173,7 @@ Fix any choice of slopes $m_i$ in the intervals
 \eqref{eq:seed19-parameter-box}. Since only $a_8=-\eps$ and $a_{15}=+\eps$
 depend on~$\eps$, each row-order difference $y_{i,j}-y_{i,k}$
 in~\eqref{eq:row-order-ineqs} is affine-linear in~$\eps$. By the
-computer-assisted verification (Section~\ref{sec:certified-package}),
+computer-assisted verification (Appendix~\ref{sec:certified-package}),
 at $\eps=0$ and for every choice of slopes in the full slope
 box~\eqref{eq:seed19-parameter-box}, exactly two such differences
 vanish---corresponding to the triangle touching $Y_0$ that collapses at the

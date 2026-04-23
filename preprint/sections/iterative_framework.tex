@@ -6,15 +6,16 @@ $\mathbb{R}^2$ and write $a_3(\cA)$ for the number of bounded triangular
 faces of an arrangement~$\cA$. A distinguished line $Y_0$ \emph{touches} a
 triangle if it contains one of its sides.
 
-Throughout the paper we use the best affine upper bound from
-\cite[Theorem~1.3]{bartholdi2007}: for every simple affine
-arrangement of $n$ lines or pseudolines with $n\equiv 1\pmod{6}$,
-\begin{equation}\label{eq:bbl-upper-bound}
-  a_3(\cA)\le \left\lfloor \frac{n(n-2)}{3}\right\rfloor
-  =
-  \frac{n(n-2)-2}{3}.
+Throughout the paper we use the best affine upper bounds for odd $n$
+from \cite[Theorem~1]{blanc2011}: for every simple affine arrangement
+of $n$ lines or pseudolines,
+\begin{equation}\label{eq:upper-bound}
+  a_3(\cA)\le
+  \begin{cases}
+    (n(n-2)-2)/3 & \text{if } n\equiv 1\pmod{6}, \\
+    n(n-2)/3 & \text{if } n\equiv 3,5\pmod{6}.
+  \end{cases}
 \end{equation}
-An arrangement is \emph{$a_3$-maximal} if it attains this bound.
 
 We use the following affine formulation of the iterative step from
 \cite[Proposition~3.1 and Remark~3.2]{bartholdi2007}.

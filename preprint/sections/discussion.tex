@@ -51,49 +51,55 @@ for the iterative constructions of~\cite{forge1998,bartholdi2007}.
 This check is reduced to the feasibility of the linear
 system~\eqref{eq:linear-order-ineq}, so the absence of a solution
 can be guaranteed, unlike with the gradient-based stretching procedure.
-None of the tested arrangements for $n=21$ and $n=23$
+None of the tested arrangements for $n=21$, $23$, $27$
 yielded a base configuration, so these zero entries
 should be viewed as stronger negative evidence.
 The columns $n=15$ and $n=17$ reproduce known small cases
 from the series~\eqref{eq:known-series}.
 The case $n=25$ is discussed separately below.
 
-Thus, for $n=21$ and $n=23$, the
+Thus, for $n=21$, $23$, $27$, the
 computations provide strong evidence against the existence of new
 infinite iterative series of type~\cite{forge1998,bartholdi2007}.
 
-\textbf{Infinite series for $n=25$.}
-This case is more subtle because even the maximal number
-$\lfloor n(n-2)/3\rfloor$ of triangles does not use all bounded segments:
-when $n\equiv 1\pmod{6}$, at least two bounded segments do not belong
-to any bounded triangle. In the affine plane, these \emph{unused segments} belong to
-unbounded faces of optimal arrangements (see $L_{13}L_{11}L_{14}$
-and $L_{12}L_{4}L_{13}$ in Figure~\ref{fig:pseudolines})
-and therefore do not prevent the triangle count from attaining the upper bound.
+\textbf{Infinite series for $\boldsymbol{n=25}$.}
+This case for affine arrangements is already covered by the known
+series~\eqref{eq:known-series}, so we focus on the projective extension.
+A natural way to produce projective arrangements is to add the line at
+infinity. Unbounded faces become bounded, and the number of new triangles
+depends on $n\bmod 6$.
 
-Adding the line at infinity, however, turns the unbounded faces with those
-unused segments into bounded faces whose every edge becomes unused;
-we call such faces \emph{defects}.
-In all optimal arrangements that we enumerated, the defect is either a
-single pentagon or a pair of quadrilaterals.
-For arrangements of $n$ lines in the projective plane with $n\equiv 2\pmod{6}$, the upper bound
+For $n\equiv 1\pmod{6}$, the upper bound~\eqref{eq:upper-bound} implies that at least two
+bounded segments do not belong to any bounded triangle.
+In the affine plane, these \emph{unused segments}
+belong to unbounded faces of optimal arrangements (see
+$L_{13}L_{11}L_{14}$ and $L_{12}L_{4}L_{13}$ in
+Figure~\ref{fig:pseudolines}), so the affine
+upper bound is still attained. In the projective plane all faces are bounded,
+and the unused segments form faces whose every edge is unused;
+we call such faces \emph{defects}. In all optimal
+arrangements that we enumerated for $n\equiv 1\pmod{6}$, the defect
+is either a single pentagon or a pair of quadrilaterals.
+
+After projective extension, the upper bound for $n$ lines with
+$n\equiv 2\pmod{6}$
 \begin{equation}\label{eq:blanc-projective-bound}
   p_3(\cA)\le \frac{n(n-1)-5}{3}
 \end{equation}
-is attained for pseudoline arrangements only in the presence of a pentagonal
-defect, and to our knowledge no corresponding straight-line configuration has
-been reported~\cite{blanc2011}.
-Accordingly, the column $n=25$ in the table concerns only pentagonal-defect
-arrangements, since this is the only subclass relevant to a potentially new
-projective-maximal family (arrangements with two quadrilateral defects
-would only cover the same values of $n$ as the already known series
-$n=6\cdot 2^t+1$~\cite{bartholdi2007}).
-Within the pentagonal-defect subclass, none of the enumerated
-arrangements passes the iterative compatibility test.
+is attained by pseudoline arrangements only in the presence of a
+pentagonal defect, and to our knowledge no corresponding straight-line
+configuration has been reported~\cite{blanc2011}.
+Accordingly, the column $n=25$ in the
+table concerns only pentagonal-defect arrangements, since this is the
+only subclass potentially yielding a new projective-maximal family.
+Within this subclass, none of the enumerated arrangements passes the
+iterative compatibility test.
 
-Note that defects introduce additional combinatorial freedom,
-which explains why the counts at $n=19$ are much larger than at $n=21$
-and $n=23$.
+By contrast, for $n\equiv 3,5\pmod{6}$ every bounded segment of an
+optimal arrangement is used (no defects arise), and adding the line at
+infinity simply produces $n$ new triangles. The additional combinatorial freedom introduced by
+defects explains why the counts at $n=19$ are much larger than at
+$n=21$ and $n=23$.
 
 \textbf{One-step realizable examples.}
 Compatibility with the iterative conditions is a stronger requirement than
