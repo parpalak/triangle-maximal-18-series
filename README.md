@@ -1,15 +1,27 @@
 # The 18·2^t+1 Triangle-Maximal Series
 
-Public repository for the certified `n=19` base configuration used in the paper.
+Public repository for the certified `n=19` base configuration [used in the paper](https://arxiv.org/abs/2604.22035).
 
-This repository is the artifact cited by the preprint. It bundles:
+Paper: [arXiv:2604.22035](https://arxiv.org/abs/2604.22035) · [Gallery](https://parpalak.github.io/triangle-maximal-18-series/gallery/) · [Interactive viewer](https://parpalak.github.io/triangle-maximal-18-series/viewer/)
 
-- the preprint source;
+<p align="center">
+  <a href="https://parpalak.github.io/triangle-maximal-18-series/gallery/">
+    <img src="gallery/base-configuration-19.png" alt="Base n=19 line configuration" width="360">
+  </a>
+</p>
+
+This repository is the artifact cited by the paper. It bundles:
+
+- the paper source;
 - the `n=19` input data;
 - the certification scripts;
 - the generated certificate files.
 
-## Quickstart
+## Result
+
+The verifier confirms that the arrangement realizes the given O-matrix, that `Y_0` touches 17 triangles, and that the arrangement has 107 bounded triangular faces.
+
+## Reproduce the certificate
 
 Run the two certification steps from [`verifier/`](./verifier):
 
@@ -34,5 +46,3 @@ This writes:
 - [`data/n19/`](./data/n19/README.md) — input data and generated certificates. See also [`FORMAT.md`](./data/n19/FORMAT.md) for field definitions.
 - [`verifier/`](./verifier/README.md) — certification pipeline: scripts, commands, and tests.
 - [`preprint/`](./preprint/) — paper source (LaTeX).
-- [`docs/`](./docs/) — GitHub Pages: [Line Configuration Viewer](https://parpalak.github.io/triangle-maximal-18-series/viewer/), [Gallery](https://parpalak.github.io/triangle-maximal-18-series/gallery/).
-- [`gallery/`](./gallery/) — source for gallery generation.
